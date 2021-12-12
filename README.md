@@ -5,13 +5,14 @@ Initalise terraform
 `terraform init`
 
 Create a tfvars file and populate it with your variables
-`cat << 'EOF' > terraform-lxc-basic.auto.tfvars
+```bash
+cat << 'EOF' > terraform-lxc-basic.auto.tfvars
 pm_api_url = "https://<PROXMOX IP>:8006/api2/json"
 pm_user = "root@pam"
 pm_password = "root@pam"
 
 EOF
-`
+```
 
 Creates an execution plan to preview the changes
 `terraform plan`
