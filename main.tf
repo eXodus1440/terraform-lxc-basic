@@ -20,25 +20,24 @@ resource "proxmox_lxc" "basic" {
     nesting = true
   }
   count        = 1
-  target_node  = "pve1"
-  hostname     = "lxc-basic-${count.index+1}"
-  ostemplate   = "local:vztmpl/ubuntu-21.04-standard_21.04-1_amd64.tar.gz"
-  password     = "BasicLXCContainer"
+  target_node  = var.target_node 
+  hostname     = "lxc-basic-${count.index+1}" 
+  ostemplate   = var.ostemplate
+  password     = var.password
   unprivileged = true
-  ostype       = "ubuntu"
-  // onboot       = true
-  start        = true
+  ostype       = var.ostype
+  onboot       = var.onboot
+  start        = var.start
 
-  // Terraform will crash without rootfs defined
   rootfs {
-    storage = "local-lvm"
-    size    = "8G"
+    storage = var.storage
+    size    = var.size
   }
 
   network {
     name   = "eth0"
     bridge = "vmbr0"
-    ip     = "dhcp"
+    ip     = var.ip
   }
 }
 

@@ -1,3 +1,4 @@
+// Provider config
 variable "pm_api_url" {
   default = "https://<PROXMOX IP>:8006/api2/json"
 }
@@ -9,3 +10,20 @@ variable "pm_user" {
 variable "pm_password" {
   default = "root@pam"
 }
+
+// Resource config
+variable "target_node" {
+  default = "pve1"
+}
+variable "ostemplate" { default = "local:vztmpl/ubuntu-21.04-standard_21.04-1_amd64.tar.gz" }
+variable "ostype" { default = "ubuntu" }
+variable "onboot" { default = true }
+variable "start" { default = true }
+variable "password" { default = "BasicLXCContainer" }
+
+// Resource root FS
+variable "storage" { default = "local-lvm" }
+variable "size" { default = "8G" }
+
+// Resource Networking
+variable "ip" { default = "dhcp" }
