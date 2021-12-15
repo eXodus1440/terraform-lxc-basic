@@ -38,6 +38,26 @@ resource "proxmox_lxc" "basic" {
     name   = "eth0"
     bridge = "vmbr0"
     ip     = var.ip
+    gw     = var.gw
   }
+
+/*
+  // Provisioner connection settings 
+  // https://www.terraform.io/docs/language/resources/provisioners/connection.html
+  connection {
+    type        = "ssh"
+    //user        = "ubuntu"
+    user        = "root"
+    private_key = file("~/.ssh/steve_rsa")
+    host        = var.ip 
+  }
+
+  provisioner "remote-exec" {
+    inline = [
+      "ip a"
+    ]
+  }
+*/
+
 }
 

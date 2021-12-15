@@ -22,4 +22,6 @@ variable "storage" { default = "local-lvm" }
 variable "size" { default = "8G" }
 
 // Resource Networking
-variable "ip" { default = "dhcp" }
+//variable "ip" { default = "dhcp" }
+variable "ip" { default = "192.168.0.102/24" }
+variable "gw" { default = "192.168.0.1" }
